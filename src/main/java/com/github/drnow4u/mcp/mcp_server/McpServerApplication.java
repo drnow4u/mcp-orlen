@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -66,7 +68,7 @@ class OrlenWholesalePriceTools {
             if (response.getBody() != null) {
                 return response.getBody().stream()
                         .map(p -> """
-                                PRODUCT: %s   |  PRICE: %s PLN | AMOUNT: 1000L | EFFECTIVE DATE: %s | DESCRIPTION POLISH: %s""".formatted(p.productName(), p.value(), p.effectiveDate(), products.get(p.productName()).name()))
+                                PRODUCT: %s | PRICE: %s PLN | AMOUNT: 1000L | EFFECTIVE DATE: %s | DESCRIPTION POLISH: %s""".formatted(p.productName(), p.value(), p.effectiveDate(), products.get(p.productName()).name()))
                         .toArray(String[]::new);
             } else
                 return new String[]{"No data found"};
@@ -77,13 +79,14 @@ class OrlenWholesalePriceTools {
         }
     }
 
-    //    @Tool(description = "returns history wholesale prices for Orlen fuel products per given year")
-//    public String[] wholesaleHistoryFuelPrices(@ToolParam(description = "Year") String year) {
-//        return new String[]{
-//                """
-//                        PRODUCT: %s   |  PRICE: %s PLN | AMOUNT: 1000L""".formatted("ONEkodiesel", 4892)
-//        };
-//    }
+    @Tool(description = "returns history wholesale prices for Orlen fuel products per given year")
+    public String[] wholesaleHistoryFuelPrices(@ToolParam(description = "From date in ISO-8601 format") String from, @ToolParam(description = "To date in ISO-8601 format") String to) {
+        final var archive = orlenWholesalePriceService.fuelPricesByDate(LocalDate.parse(from), LocalDate.parse(to))
+                .stream()
+                .map(p -> "PRODUCT: %s | PRICE: %s PLN | AMOUNT: 1000L | EFFECTIVE DATE: %s".formatted(p.productName(), p.value(), p.effectiveDate()))
+                .toArray(String[]::new);
+        return archive;
+    }
 
 }
 
@@ -93,6 +96,8 @@ class OrlenWholesalePriceService {
     private final RestTemplate restTemplate = new RestTemplate();
     private static final String ORLEN_PRODUCTS_API_URL = "https://tool.orlen.pl/api/wholesalefuelprices/Products";
     private static final String ORLEN_WHOLESALE_FUEL_PRICES_API_URL = "https://tool.orlen.pl/api/wholesalefuelprices";
+    // https://tool.orlen.pl/api/wholesalefuelprices/ByProduct?productId=41&from=2025-01-01&to=2025-09-06
+    private static final String ORLEN_WHOLESALE_FUEL_PRICES_BY_DATE_API_URL = "https://tool.orlen.pl/api/wholesalefuelprices/ByProduct";
 
     public List<FuelProduct> products() {
         ResponseEntity<List<FuelProduct>> response = restTemplate.exchange(
@@ -113,6 +118,20 @@ class OrlenWholesalePriceService {
                 new ParameterizedTypeReference<>() {
                 }
         );
+    }
+
+    public List<WholesaleFuelPriceDto> fuelPricesByDate(LocalDate from, LocalDate to) {
+        
+        var response =  restTemplate.exchange(
+                ORLEN_WHOLESALE_FUEL_PRICES_BY_DATE_API_URL + "?productId=41&from={from}&to={to}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<WholesaleFuelPriceDto>>() {
+                },
+                from,
+                to
+        );
+        return response.getBody();
     }
 
 }
