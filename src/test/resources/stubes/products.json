@@ -1,0 +1,98 @@
+[
+  {
+    "id": 39,
+    "name": "Olej opałowy ciężki o zawartości siarki do 3%",
+    "nameEn": "Heavy fuel oil with max. 3% sulphur content",
+    "symbol": "HeatingC3"
+  },
+  {
+    "id": 40,
+    "name": "Olej opałowy ciężki o zawartości siarki do 1%",
+    "nameEn": "Heavy fuel oil with max. 1% sulphur content",
+    "symbol": "HeatingC3LowSulfur"
+  },
+  {
+    "id": 41,
+    "name": "Benzyna bezołowiowa - Eurosuper 95",
+    "nameEn": "Unleaded Eurosuper 95",
+    "symbol": "Pb95"
+  },
+  {
+    "id": 42,
+    "name": "Benzyna bezołowiowa - Super Plus 98",
+    "nameEn": "Unleaded Super Plus 98",
+    "symbol": "Pb98"
+  },
+  {
+    "id": 43,
+    "name": "Olej Napędowy Ekodiesel",
+    "nameEn": "Ekodiesel diesel oil",
+    "symbol": "ONEkodiesel"
+  },
+  {
+    "id": 44,
+    "name": "Olej Napędowy Arktyczny 2",
+    "nameEn": "Diesel oil Artic grade A2",
+    "symbol": "ONArctic2"
+  },
+  {
+    "id": 45,
+    "name": "Olej Napędowy Miejski Super",
+    "nameEn": "Super urban diesel oil",
+    "symbol": "ONSuper"
+  },
+  {
+    "id": 46,
+    "name": "Olej Napędowy Grzewczy Ekoterm",
+    "nameEn": "Ekoterm fuel oil",
+    "symbol": "OnEkoterm"
+  },
+  {
+    "id": 47,
+    "name": "BIO 100",
+    "nameEn": "BIO 100",
+    "symbol": "BIO100"
+  },
+  {
+    "id": 48,
+    "name": "Autogaz",
+    "nameEn": "LPG",
+    "symbol": "LPG"
+  },
+  {
+    "id": 52,
+    "name": "Benzyna bezołowiowa - Eurosuper 95",
+    "nameEn": "Unleaded Eurosuper 95",
+    "symbol": "Pb95"
+  },
+  {
+    "id": 53,
+    "name": "Benzyna bezołowiowa - Super Plus 98",
+    "nameEn": "Unleaded Super Plus 98",
+    "symbol": "Pb98"
+  },
+  {
+    "id": 54,
+    "name": "Olej Napędowy Ekodiesel",
+    "nameEn": "Ekodiesel diesel oil",
+    "symbol": "ONEkodiesel"
+  },
+  {
+    "id": 1049,
+    "name": "JET A-1",
+    "nameEn": "JET A-1",
+    "symbol": "JETA1"
+  },
+  {
+    "id": 1050,
+    "name": "AVGAS 100LL",
+    "nameEn": "AVGAS 100LL",
+    "symbol": "AVGAS100LL"
+  },
+  {
+    "id": 1051,
+    "name": "Wodór automotive",
+    "nameEn": "Hydrogen automotive",
+    "symbol": "HydrogenA"
+  }
+]
