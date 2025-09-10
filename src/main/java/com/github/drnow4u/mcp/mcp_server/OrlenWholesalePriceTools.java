@@ -51,8 +51,10 @@ class OrlenWholesalePriceTools {
     }
 
     @Tool(description = "returns history wholesale prices for Orlen fuel products per given year")
-    public String[] wholesaleHistoryFuelPrices(@ToolParam(description = "From date in ISO-8601 format") String from, @ToolParam(description = "To date in ISO-8601 format") String to) {
-        return orlenWholesalePriceService.fuelPricesByDate(LocalDate.parse(from), LocalDate.parse(to))
+    public String[] wholesaleHistoryFuelPrices(@ToolParam(description = "Fuel ID one of listWholesaleFuelProducts") Integer id,
+                                               @ToolParam(description = "From date in ISO-8601 format") String from,
+                                               @ToolParam(description = "To date in ISO-8601 format") String to) {
+        return orlenWholesalePriceService.fuelPricesByDate(id, LocalDate.parse(from), LocalDate.parse(to))
                 .stream()
                 .map(p -> "PRODUCT: %s | PRICE: %s PLN | AMOUNT: 1000L | EFFECTIVE DATE: %s".formatted(p.productName(), p.value(), p.effectiveDate()))
                 .toArray(String[]::new);

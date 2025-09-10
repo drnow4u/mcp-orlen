@@ -39,14 +39,15 @@ class OrlenWholesalePriceService {
         );
     }
 
-    public List<WholesaleFuelPriceDto> fuelPricesByDate(LocalDate from, LocalDate to) {
+    public List<WholesaleFuelPriceDto> fuelPricesByDate(Integer id, LocalDate from, LocalDate to) {
 
         var response = restTemplate.exchange(
-                ORLEN_WHOLESALE_FUEL_PRICES_BY_DATE_API_URL + "?productId=41&from={from}&to={to}",
+                ORLEN_WHOLESALE_FUEL_PRICES_BY_DATE_API_URL + "?productId={id}&from={from}&to={to}",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<WholesaleFuelPriceDto>>() {
                 },
+                id,
                 from,
                 to
         );
