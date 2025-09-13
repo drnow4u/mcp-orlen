@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.drnow4u.mcp</groupId>
 	<artifactId>mcp-orlen</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>Orlen Wholesale Fuel Prices MCP Server</name>
 	<description>MCP Servers for different purposes</description>
 	<url/>

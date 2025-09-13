@@ -26,4 +26,8 @@ Tested with Claude for MacOS.
    }
    ```
 6. Restart Claude.
-7. Enjoy!
+7. Example prompt:
+   * EN: `Create a chart of the Orlen wholesale price of the fuel in the last month of this year`
+   * PL: `Proszę narysuj wykres jak kształtowały się ceny hurtowe paliwa Orlen w ciągu ostatniego miesiąca tego roku`
+8. Model response: ![Model response](./doc/prompt_result.png)
+9. Enjoy!
