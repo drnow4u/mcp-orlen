@@ -1,0 +1,47 @@
+[
+  {
+    "productName": "Pb95",
+    "effectiveDate": "2025-09-06T00:00:00",
+    "publishFrom": "2025-09-06T00:00:00",
+    "value": 4442.0000,
+    "locationName": "",
+    "locationSymbol": null,
+    "unit": null
+  },
+  {
+    "productName": "Pb98",
+    "effectiveDate": "2025-09-06T00:00:00",
+    "publishFrom": "2025-09-06T00:00:00",
+    "value": 4960.0000,
+    "locationName": "",
+    "locationSymbol": null,
+    "unit": null
+  },
+  {
+    "productName": "ONEkodiesel",
+    "effectiveDate": "2025-09-06T00:00:00",
+    "publishFrom": "2025-09-06T00:00:00",
+    "value": 4639.0000,
+    "locationName": "",
+    "locationSymbol": null,
+    "unit": null
+  },
+  {
+    "productName": "ONArctic2",
+    "effectiveDate": "2025-09-06T00:00:00",
+    "publishFrom": "2025-09-06T00:00:00",
+    "value": 4994.0000,
+    "locationName": "",
+    "locationSymbol": null,
+    "unit": null
+  },
+  {
+    "productName": "OnEkoterm",
+    "effectiveDate": "2025-09-06T00:00:00",
+    "publishFrom": "2025-09-06T00:00:00",
+    "value": 3287.0000,
+    "locationName": "",
+    "locationSymbol": null,
+    "unit": null
+  }
+]
