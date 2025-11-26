@@ -1,4 +1,4 @@
-# MCP Orlen Wholesale Price - Learning Repository
+# MCP Orlen Wholesale Price - Learning Project
 Model Context Protocol Servers for Orlen Wholesale Price.
 
 ## Install
